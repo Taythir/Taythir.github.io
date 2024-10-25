@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taythir's Website</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(135deg, #af4e28, #ffcccb);
+            color: rgb(11, 11, 30);
+            font-family: Copperplate, sans-serif;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: -20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline;
+            margin: 0 15px;
+            font-family: Helvetica, sans-serif;
+            font-size: 16px;
+            color: grey;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(20, 20, 137);
+        }
+        a:hover {
+            color: #af4e28;
+        }
+        header img {
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .bio {
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            font-family: Helvetica, sans-serif;
+            font-size: 20px;
+            color: grey;
+        }
+        .more-text {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Taythir Martin</h1>
+    <h2>_________________________________________</h2>
+    <ul>
+        <li>About</li>
+        <li>CV</li>
+        <li><a href="https://github.com/Taythir">Projects</a></li>
+    </ul>
+    <header>
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQHzhb6B4JWP_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1696082143892?e=1734566400&v=beta&t=Zred4qfNtnYi6s-KqMsnSSeMAKySMka_nOT71kAkGVg" width="200" height="200" alt="Profile Picture">
+    </header>
+    <p>Email: <a href="mailto:taythir.martin@g.austincc.edu">taythir.martin@g.austincc.edu</a></p>
+    <div class="bio">
+        I am a software engineer as well as a Computer Science grad student at Texas State University, currently focusing on automata theory, Turing machines, and decidability.
+        <div class="more-text" id="moreText">
+            Here is some more text that appears as you scroll. You can add more information about your work, interests, or projects here.
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function() {
+            var moreText = document.getElementById('moreText');
+            if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+                moreText.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
