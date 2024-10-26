@@ -10,6 +10,10 @@
             background: linear-gradient(135deg, #af4e28, #ffcccb);
             color: rgb(11, 11, 30);
             font-family: Copperplate, sans-serif;
+            overflow-y: auto; /* Allow vertical scrolling */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure body takes full height */
         }
         h1 {
             font-size: 60px;
@@ -53,27 +57,84 @@
         .more-text {
             display: none;
         }
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 105px solid rgba(11, 11, 30, 0.5);
+            animation: rotate 10s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .about {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            font-family: Helvetica, sans-serif;
+            font-size: 18px;
+            color: grey;
+            text-align: left;
+            display: none; /* Initially hidden */
+        }
+        .about h3 {
+            font-size: 24px;
+            color: rgb(20, 20, 137);
+        }
+        .toggle-btn {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #af4e28;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>Taythir Martin</h1>
     <h2>_________________________________________</h2>
     <ul>
-        <li>About</li>
-        <li>CV</li>
+        
+        <li><a href="https://docs.google.com/document/d/1_n6mmxqJB_uYeT_8p__ehPloKnrG5kIGvFyyWwQUpy4/edit">CV</a></li>
         <li><a href="https://github.com/Taythir">Projects</a></li>
     </ul>
     <header>
         <img src="https://media.licdn.com/dms/image/v2/D5603AQHzhb6B4JWP_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1696082143892?e=1734566400&v=beta&t=Zred4qfNtnYi6s-KqMsnSSeMAKySMka_nOT71kAkGVg" width="200" height="200" alt="Profile Picture">
     </header>
     <p>Email: <a href="mailto:taythir.martin@g.austincc.edu">taythir.martin@g.austincc.edu</a></p>
-    <div class="bio">
-        I am a software engineer as well as a Computer Science grad student at Texas State University, currently focusing on automata theory, Turing machines, and decidability.
-        <div class="more-text" id="moreText">
-            Here is some more text that appears as you scroll. You can add more information about your work, interests, or projects here.
-        </div>
+
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleAbout()">Show About Me</button>
+
+    <!-- About Section -->
+    <div class="about" id="about">
+        <h3>About Me</h3>
+        <p>Hi, I’m Taythir Martin. I'm currently a software engineer and a graduate student pursuing my Master of Science in Computer Science at Texas State University. My academic journey has equipped me with a deep understanding of automata theory, Turing machines, and decidability, and I'm passionate about pushing the boundaries of knowledge in these areas.</p>
+        <p>My research interests include Human-Computer Interaction, Computer Vision, Machine Learning, Artificial Intelligence, and Pedagogy. I have extensive experience in developing intelligent systems and exploring the psychological aspects of STEM education, aiming to create impactful solutions and improve learning experiences.</p>
+        <p>In addition to my technical expertise, I bring a unique blend of project management and business acumen, thanks to my MBA from Saint Edward's University. I've worked on diverse projects, from building functional alternatives to popular learning platforms to developing intelligent game algorithms and conducting NSF-supported educational research.</p>
+        <p>I'm driven by curiosity and a desire to innovate, constantly seeking new challenges and opportunities to grow. My goal is to contribute to cutting-edge research and advance the field of computer science through a PhD program.</p>
+        <p>When I'm not coding or diving into research, you can find me playing a piano, or enjoying a good book.</p>
     </div>
     <script>
+        function toggleAbout() {
+            const aboutSection = document.getElementById('about');
+            const button = document.querySelector('.toggle-btn');
+            if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
+                aboutSection.style.display = 'block';
+                button.textContent = 'Hide About Me';
+            } else {
+                aboutSection.style.display = 'none';
+                button.textContent = 'Show About Me';
+            }
+        }
+        
         window.addEventListener('scroll', function() {
             var moreText = document.getElementById('moreText');
             if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
