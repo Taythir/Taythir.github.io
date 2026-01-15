@@ -54,4 +54,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 Taythir Martin - [taythir.martin@g.austincc.edu](mailto:taythir.martin@g.austincc.edu)
 
-Project Link: [https://github.com/Taythir/personal-website](https://github.com/Taythir/personal-website)
+Project Link: [https://github.com/Taythir/personal-website](https://taythir.github.io)
